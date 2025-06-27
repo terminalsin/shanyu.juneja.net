@@ -1,16 +1,55 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Shanyu Thibaut" description="Hi, I'm a developer, and this is my site">
+  <div class="prose prose-gray max-w-none">
+    <h1 class="text-3xl font-bold mb-4 text-gray-900">About me</h1>
+    
+    <p class="text-gray-700 leading-relaxed mb-6">Hi, I'm Shanyu Thibaut, a BS student at the University of Massachusetts Amherst. I study Computer Science.</p>
+
+    <h2 class="text-2xl font-semibold mb-4 mt-8 text-gray-900">Interests</h2>
+    <ul class="space-y-2 mb-8 ml-6 list-disc">
+      <li class="text-gray-700"><strong class="text-gray-900">Compilers:</strong> disassembly, (de)optimization, decompilers</li>
+      <li class="text-gray-700"><strong class="text-gray-900">Obfuscation:</strong> dynamic opaque predicates, SSA and virtualization</li>
+      <li class="text-gray-700"><strong class="text-gray-900">Law:</strong> civil and ip law</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mb-4 mt-8 text-gray-900">Featured Projects</h2>
+    <ul class="space-y-3 mb-8 ml-6 list-disc">
+      <li class="text-gray-700">
+        <a href="https://github.com/skidfuscatordev/skidfuscator-java-obfuscator" class="text-blue-600 hover:text-blue-800 font-semibold">Skidfuscator Java Obfuscator</a>: Full Java obfuscator with inter-procedural obfuscation, leveraging SSA form to create some of the most complex flow obfuscation found in java
+      </li>
+      <li class="text-gray-700">
+        <a href="https://github.com/artemisac/artemis-minecraft-anticheat" class="text-blue-600 hover:text-blue-800 font-semibold">Artemis Anticheat</a>: Java anticheating software toolset designed to emulate and replicate Minecraft's physics engine on the server-side based on incomplete data and heuristically bruteforced inferences. Currently the project spans over 100,000 lines of code
+      </li>
+      <li class="text-gray-700">
+        <a href="https://github.com/terminalsin/fairy-packet-starter" class="text-blue-600 hover:text-blue-800 font-semibold">Various Packet/Protocol APIs</a>: Designed various packet apis for various different projects
+      </li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mb-4 mt-8 text-gray-900">Research</h2>
+    <ul class="space-y-3 mb-8 ml-6 list-disc">
+      <li class="text-gray-700">
+        <a href="https://github.com/skidfuscatordev/skidfuscator-java-obfuscator" class="text-blue-600 hover:text-blue-800">Taking Java Obfuscation to the Next Level by Exploiting SSA Form</a> (2024, CCSC-NE Finalist)
+      </li>
+      <li class="text-gray-700">Analysis, evaluation and proposal of an inter-procedural Java Obfuscation methodology (2023, publishing soon?)</li>
+      <li class="text-gray-700">
+        <a href="https://github.com/skidfuscatordev/constant-dynamic-research/" class="text-blue-600 hover:text-blue-800">Java String Encryption Performance Enhancement with JDK11+</a> (2024, IEEE plz plz plz accept)
+      </li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mb-4 mt-8 text-gray-900">Security Research</h2>
+    <ul class="space-y-3 mb-8 ml-6 list-disc">
+      <li class="text-gray-700">Responsible for the discovery of a CVSS 9.4 RCE in <a href="https://aioz.network/" class="text-blue-600 hover:text-blue-800">Aioz Network</a>, impacting over 50,000 end users</li>
+      <li class="text-gray-700">Responsible for the discovery of various other bugs in Phala Network, other blockchains, etc</li>
+      <li class="text-gray-700">Reversal of various Android applications, including the SSL unpinning and source-code reversal of Snapchat, Tinder, Instagram, etc.</li>
+    </ul>
+
+    <div class="mt-10">
+      <a href="/projects" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+        View all my projects →
+      </a>
+    </div>
+  </div>
+</BaseLayout>

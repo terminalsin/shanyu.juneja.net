@@ -1,0 +1,63 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <div class="max-w-none">
+    <article>
+      <header class="mb-8 pb-8 border-b border-gray-200">
+        <div class="text-sm text-gray-500 mb-4">
+          Published on {new Date(post.data.pubDate).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+          {post.data.updatedDate && (
+            <span> • Updated on {new Date(post.data.updatedDate).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}</span>
+          )}
+        </div>
+        
+        <h1 class="text-4xl font-bold mb-4 text-gray-900 leading-tight">{post.data.title}</h1>
+        
+        <p class="text-xl text-gray-600 leading-relaxed">{post.data.description}</p>
+        
+        {post.data.tags && (
+          <div class="flex flex-wrap gap-2 mt-4">
+            {post.data.tags.map((tag) => (
+              <span class="px-3 py-1 text-sm font-medium text-gray-600 bg-gray-100 rounded-full">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <div class="prose prose-gray prose-lg max-w-none">
+        <Content />
+      </div>
+    </article>
+
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <a href="/thoughts" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+        ← Back to all thoughts
+      </a>
+    </div>
+  </div>
+</BaseLayout> 

@@ -1,0 +1,160 @@
+{
+    "experience": [
+        {
+            "id": 0,
+            "title": "Founding Security Engineer",
+            "company": "Stealth",
+            "period": "2025 - present",
+            "dotColor": "bg-green-600",
+            "logo": "/images/logo/casco.png",
+            "description": "Working on the security of the company's products and services. Specialized in vulnerability assessment and responsible disclosure."
+        },
+        {
+            "id": 1,
+            "title": "Senior Software Engineer",
+            "company": "Namecheap",
+            "period": "2024 - 2025",
+            "dotColor": "bg-orange-600",
+            "logo": "/images/logo/namecheap.png",
+            "description": "Worked on enterprise kubernetes deployments, CI/CD pipelines, and internal tools, maintaining and improving the infrastructure and tools used by over 1,000,000 customers."
+        },
+        {
+            "id": 2,
+            "title": "Security Researcher",
+            "company": "Independent Research",
+            "period": "2023 - Present",
+            "dotColor": "bg-red-600",
+            "logo": "/images/security-icon.svg",
+            "description": "Discovered CVSS 9.4 RCE vulnerability in Aioz Network affecting 50,000+ users. Conducted security research on various blockchain projects including Phala Network. Specialized in vulnerability assessment and responsible disclosure."
+        },
+        {
+            "id": 4,
+            "title": "Java Obfuscation Researcher",
+            "company": "Skidfuscator Project",
+            "period": "2022 - Present",
+            "dotColor": "bg-orange-600",
+            "logo": "/images/tech-startup-logo.svg",
+            "description": "Developed and maintained Skidfuscator, an advanced Java obfuscation tool. Researched SSA form exploitation and inter-procedural obfuscation methodologies. Created innovative compiler optimization techniques."
+        },
+        {
+            "id": 5,
+            "title": "Platform Developer",
+            "company": "Artemis",
+            "period": "2023 - Present",
+            "dotColor": "bg-purple-600",
+            "logo": "/images/tech-startup-logo.svg",
+            "description": "Developed and maintained the Artemis platform. Worked on backend systems, API development, and platform infrastructure to support various security research initiatives."
+        }
+    ],
+    "skills": {
+        "Programming Languages": [
+            {
+                "name": "Java",
+                "color": "bg-orange-500"
+            },
+            {
+                "name": "C#",
+                "color": "bg-green-500"
+            },
+            {
+                "name": "TypeScript",
+                "color": "bg-blue-500"
+            },
+            {
+                "name": "JavaScript",
+                "color": "bg-yellow-500"
+            },
+            {
+                "name": "Python",
+                "color": "bg-blue-600"
+            },
+            {
+                "name": "Kotlin",
+                "color": "bg-purple-500"
+            }
+        ],
+        "Security & Research": [
+            {
+                "name": "Vulnerability Research",
+                "color": "bg-red-500"
+            },
+            {
+                "name": "Reverse Engineering",
+                "color": "bg-gray-600"
+            },
+            {
+                "name": "Mobile Security",
+                "color": "bg-green-600"
+            },
+            {
+                "name": "Blockchain Security",
+                "color": "bg-yellow-600"
+            },
+            {
+                "name": "SSL Unpinning",
+                "color": "bg-red-600"
+            },
+            {
+                "name": "Static Analysis",
+                "color": "bg-purple-600"
+            }
+        ],
+        "Tools & Technologies": [
+            {
+                "name": "Kubernetes",
+                "color": "bg-blue-600"
+            },
+            {
+                "name": "CI/CD",
+                "color": "bg-green-600"
+            },
+            {
+                "name": "Docker",
+                "color": "bg-blue-500"
+            },
+            {
+                "name": "Git",
+                "color": "bg-gray-500"
+            },
+            {
+                "name": "Android Development",
+                "color": "bg-green-500"
+            },
+            {
+                "name": "Compiler Design",
+                "color": "bg-orange-600"
+            }
+        ],
+        "Methodologies": [
+            {
+                "name": "Obfuscation Techniques",
+                "color": "bg-indigo-500"
+            },
+            {
+                "name": "SSA Form Analysis",
+                "color": "bg-pink-500"
+            },
+            {
+                "name": "Inter-procedural Analysis",
+                "color": "bg-teal-500"
+            },
+            {
+                "name": "Responsible Disclosure",
+                "color": "bg-red-500"
+            },
+            {
+                "name": "Research Publication",
+                "color": "bg-blue-700"
+            }
+        ]
+    },
+    "education": [
+        {
+            "degree": "B.S. in Computer Science",
+            "school": "University of Massachusetts Amherst",
+            "period": "2022 - 2025",
+            "logo": "/images/umass-logo.svg",
+            "description": "Conducted research on Java obfuscation techniques and compiler optimizations. Published papers on SSA form exploitation and inter-procedural obfuscation methodologies. Presented findings at CCSC-NE conference as a finalist."
+        }
+    ]
+}

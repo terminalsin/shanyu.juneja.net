@@ -1,0 +1,413 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getProjectsData } from "../utils/github";
+
+const projects = await getProjectsData();
+---
+
+<BaseLayout
+  title="Projects - Shanyu Thibaut"
+  description="My programming projects and contributions"
+>
+  <div class="max-w-none">
+    <h1 class="text-3xl font-bold mb-6 text-gray-900">Projects</h1>
+
+    <div class="mb-8">
+      <p class="text-gray-600">
+        Here are some of my notable projects. Projects with the trophy badge
+        have won hackathons or competitions.
+      </p>
+    </div>
+
+    <div class="space-y-6">
+      {
+        projects.map((project, index) => (
+          <div
+            class="relative bg-white border border-gray-200 rounded-xl p-4 py-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-blue-300 project-card"
+            data-index={index}
+          >
+            {project.hackathonWin && project.hackathonName && (
+              <div class="absolute top-4 right-4">
+                <button
+                  class={`trophy-badge flex items-center gap-2 rounded-full px-3 py-1 text-sm font-bold transition-all duration-200 shadow-sm hover:shadow-md border-2 ${
+                    project.winType === 'first' 
+                      ? 'bg-yellow-50 border-yellow-200 text-yellow-800 hover:bg-yellow-100 hover:border-yellow-300'
+                      : project.winType === 'second'
+                      ? 'bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400'
+                      : project.winType === 'third'
+                      ? 'bg-orange-50 border-orange-200 text-orange-800 hover:bg-orange-100 hover:border-orange-300'
+                      : project.winType === 'finalist'
+                      ? 'bg-purple-50 border-purple-200 text-purple-800 hover:bg-purple-100 hover:border-purple-300'
+                      : 'bg-orange-50 border-orange-200 text-orange-800 hover:bg-orange-100 hover:border-orange-300'
+                  }`}
+                  data-celebration-image={project.celebrationImage}
+                  data-hackathon-name={project.hackathonName}
+                >
+{project.winType === 'first' ? (
+                    <!-- Crown for 1st place -->
+                    <svg
+                      class="w-4 h-4 text-yellow-600"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12L2 17L7 16L12 21L17 16L22 17L19 12L21 7L16 10L12 4L8 10L3 7L5 12Z" />
+                    </svg>
+                  ) : project.winType === 'second' ? (
+                    <!-- Silver medal for 2nd place -->
+                    <svg
+                      class="w-4 h-4 text-gray-500"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 2C17.5 2 22 6.5 22 12S17.5 22 12 22 2 17.5 2 12 6.5 2 12 2M12 4C7.6 4 4 7.6 4 12S7.6 20 12 20 20 16.4 20 12 16.4 4 12 4M12 6C15.3 6 18 8.7 18 12S15.3 18 12 18 6 15.3 6 12 8.7 6 12 6M12 8C9.8 8 8 9.8 8 12S9.8 16 12 16 16 14.2 16 12 14.2 8 12 8Z" />
+                    </svg>
+                  ) : project.winType === 'third' ? (
+                    <!-- Bronze medal for 3rd place -->
+                    <svg
+                      class="w-4 h-4 text-orange-700"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 2C17.5 2 22 6.5 22 12S17.5 22 12 22 2 17.5 2 12 6.5 2 12 2M12 4C7.6 4 4 7.6 4 12S7.6 20 12 20 20 16.4 20 12 16.4 4 12 4M12 6C15.3 6 18 8.7 18 12S15.3 18 12 18 6 15.3 6 12 8.7 6 12 6M12 8C9.8 8 8 9.8 8 12S9.8 16 12 16 16 14.2 16 12 14.2 8 12 8Z" />
+                    </svg>
+                  ) : project.winType === 'finalist' ? (
+                    <!-- Ribbon for finalist -->
+                    <svg
+                      class="w-4 h-4 text-purple-600"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 16L3.5 14.5L9 9L7.5 7.5L13 2H15L21 8L16 13L14.5 11.5L9 17L10.5 18.5L5 24H3L2 22V20L7.5 14.5L5 16M17.5 8.5C17.5 9.3 16.8 10 16 10S14.5 9.3 14.5 8.5 15.2 7 16 7 17.5 7.7 17.5 8.5Z" />
+                    </svg>
+                  ) : (
+                    <!-- Default star -->
+                    <svg
+                      class="w-4 h-4 text-orange-600"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" />
+                    </svg>
+                  )}
+                  <span>{project.hackathonName}</span>
+                </button>
+              </div>
+            )}
+
+            <div class="flex items-center gap-3 mb-4">
+              <svg
+                class="w-5 h-5 text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"
+                />
+              </svg>
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold text-gray-900 m-0">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:text-blue-600 transition-colors no-underline"
+                  >
+                    {project.title}
+                  </a>
+                </h3>
+                <div class="flex items-center gap-1 text-sm text-gray-600">
+                  <svg
+                    class="w-4 h-4 text-amber-500"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" />
+                  </svg>
+                  <span>{project.stars}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 mb-4 text-sm text-gray-600">
+              <div class="flex items-center gap-1">
+                <span
+                  class={`w-3 h-3 rounded-full ${
+                    project.language.toLowerCase() === "java"
+                      ? "bg-orange-600"
+                      : project.language.toLowerCase() === "c#"
+                        ? "bg-green-600"
+                        : project.language.toLowerCase() === "typescript"
+                          ? "bg-blue-600"
+                          : "bg-gray-400"
+                  }`}
+                />
+                <span>{project.language}</span>
+              </div>
+              <div class="text-gray-500">
+                <span>
+                  {project.owner}/{project.repo}
+                </span>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              {project.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-12">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-900">
+        Other Notable Work
+      </h2>
+
+      <ul class="space-y-3 ml-6 list-disc">
+        <li class="text-gray-700">
+          <strong class="text-gray-900">Security Research:</strong> Discovery of
+          CVSS 9.4 RCE in Aioz Network, impacting over 50,000 end users
+        </li>
+        <li class="text-gray-700">
+          <strong class="text-gray-900">Mobile Security:</strong> Reversal of various
+          Android applications, including SSL unpinning and source-code reversal
+          of Snapchat, Tinder, Instagram, etc.
+        </li>
+        <li class="text-gray-700">
+          <strong class="text-gray-900">Blockchain Security:</strong> Discovery of
+          various bugs in Phala Network and other blockchain projects
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal for celebration images -->
+  <div
+    id="celebration-modal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300"
+  >
+    <div
+      class="bg-white rounded-lg p-6 max-w-2xl max-h-[80vh] overflow-auto m-4 transform scale-95 transition-transform duration-300"
+    >
+      <div class="flex justify-between items-center mb-4">
+        <h3 id="modal-title" class="text-xl font-bold text-gray-900"></h3>
+        <button
+          id="close-modal"
+          class="text-gray-500 hover:text-gray-700 transition-colors"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="modal-content" class="text-center">
+        <img
+          id="celebration-image"
+          src=""
+          alt="Celebration"
+          class="max-w-full h-auto rounded-lg mx-auto"
+        />
+        <p class="mt-4 text-gray-600">🎉 Celebrating our win! 🎉</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas" class="fixed inset-0 pointer-events-none z-40"
+  ></canvas>
+
+  <script>
+    // Confetti animation
+    class Confetti {
+      constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext("2d");
+        this.particles = [];
+        this.colors = [
+          "#FFD700",
+          "#FF6B6B",
+          "#4ECDC4",
+          "#45B7D1",
+          "#96CEB4",
+          "#FECA57",
+        ];
+        this.isAnimating = false;
+
+        this.resizeCanvas();
+        window.addEventListener("resize", () => this.resizeCanvas());
+      }
+
+      resizeCanvas() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+      }
+
+      createParticle(x, y) {
+        return {
+          x: x,
+          y: y,
+          vx: (Math.random() - 0.5) * 8,
+          vy: (Math.random() - 0.5) * 8 - 2,
+          size: Math.random() * 6 + 2,
+          color: this.colors[Math.floor(Math.random() * this.colors.length)],
+          life: 1,
+          decay: Math.random() * 0.02 + 0.01,
+        };
+      }
+
+      burst(x, y, count = 15) {
+        for (let i = 0; i < count; i++) {
+          this.particles.push(this.createParticle(x, y));
+        }
+
+        if (!this.isAnimating) {
+          this.isAnimating = true;
+          this.animate();
+        }
+      }
+
+      animate() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        for (let i = this.particles.length - 1; i >= 0; i--) {
+          const particle = this.particles[i];
+
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+          particle.vy += 0.3; // gravity
+          particle.life -= particle.decay;
+
+          if (particle.life <= 0) {
+            this.particles.splice(i, 1);
+            continue;
+          }
+
+          this.ctx.save();
+          this.ctx.globalAlpha = particle.life;
+          this.ctx.fillStyle = particle.color;
+          this.ctx.beginPath();
+          this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+          this.ctx.fill();
+          this.ctx.restore();
+        }
+
+        if (this.particles.length > 0) {
+          requestAnimationFrame(() => this.animate());
+        } else {
+          this.isAnimating = false;
+        }
+      }
+    }
+
+    // Initialize confetti
+    const confetti = new Confetti(document.getElementById("confetti-canvas"));
+
+    // Modal functionality
+    const modal = document.getElementById("celebration-modal");
+    const modalTitle = document.getElementById("modal-title");
+    const celebrationImage = document.getElementById("celebration-image");
+    const closeModal = document.getElementById("close-modal");
+
+    function openModal(hackathonName: string, imageSrc: string) {
+      if (modalTitle) modalTitle.textContent = `${hackathonName} Victory!`;
+      if (celebrationImage) celebrationImage.src = imageSrc;
+      if (modal) {
+        modal.classList.remove("opacity-0", "pointer-events-none");
+        const modalContent = modal.querySelector(".bg-white");
+        if (modalContent) {
+          modalContent.classList.remove("scale-95");
+          modalContent.classList.add("scale-100");
+        }
+      }
+    }
+
+    function closeModalFn() {
+      if (modal) {
+        modal.classList.add("opacity-0", "pointer-events-none");
+        const modalContent = modal.querySelector(".bg-white");
+        if (modalContent) {
+          modalContent.classList.add("scale-95");
+          modalContent.classList.remove("scale-100");
+        }
+      }
+    }
+
+    closeModal.addEventListener("click", closeModalFn);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModalFn();
+    });
+
+    // Trophy badge interactions
+    document.addEventListener("DOMContentLoaded", function () {
+      const trophyBadges = document.querySelectorAll(".trophy-badge");
+      const projectCards = document.querySelectorAll(".project-card");
+
+      trophyBadges.forEach((badge) => {
+        // Click to show celebration image
+        badge.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const imageSrc = badge.dataset.celebrationImage;
+          const hackathonName = badge.dataset.hackathonName;
+
+          if (imageSrc) {
+            openModal(hackathonName, imageSrc);
+          } else {
+            // Fallback if no image - just show a congratulations message
+            modalTitle.textContent = `${hackathonName} Victory!`;
+            celebrationImage.style.display = "none";
+            modal.querySelector("#modal-content").innerHTML = `
+              <div class="text-center py-8">
+                <div class="text-6xl mb-4">🏆</div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Congratulations!</h3>
+                <p class="text-gray-600">Winner of ${hackathonName}</p>
+                <div class="mt-4 text-4xl">🎉 🎊 🎉</div>
+              </div>
+            `;
+            modal.classList.remove("opacity-0", "pointer-events-none");
+            modal.querySelector(".bg-white").classList.remove("scale-95");
+            modal.querySelector(".bg-white").classList.add("scale-100");
+          }
+        });
+      });
+
+      // Hover confetti effect
+      projectCards.forEach((card) => {
+        const trophyBadge = card.querySelector(".trophy-badge");
+        if (trophyBadge) {
+          let hoverTimeout: ReturnType<typeof setTimeout> | undefined;
+
+          card.addEventListener("mouseenter", () => {
+            hoverTimeout = setTimeout(() => {
+              const rect = trophyBadge.getBoundingClientRect();
+              const x = rect.left + rect.width / 2;
+              const y = rect.top + rect.height / 2;
+              confetti.burst(x, y, 8);
+            }, 300); // Delay to avoid too much confetti
+          });
+
+          card.addEventListener("mouseleave", () => {
+            if (hoverTimeout) clearTimeout(hoverTimeout);
+          });
+        }
+      });
+    });
+
+    // Keyboard support for modal
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeModalFn();
+      }
+    });
+  </script>
+</BaseLayout>
