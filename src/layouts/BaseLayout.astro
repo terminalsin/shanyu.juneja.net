@@ -12,10 +12,14 @@ const { title, description = "Shanyu Thibaut - Developer" } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+
     <title>{title}</title>
     <style>
       @keyframes glitch {
@@ -28,60 +32,44 @@ const { title, description = "Shanyu Thibaut - Developer" } = Astro.props;
         5% {
           transform: translate(-2px, 2px);
           filter: hue-rotate(90deg) saturate(3) brightness(1.5) contrast(2)
-            invert(0.2);
-          box-shadow:
-            2px 0 0 #ff0000,
-            -2px 0 0 #00ffff;
+            invert(0.2) drop-shadow(2px 0 0 #ff0000)
+            drop-shadow(-2px 0 0 #00ffff);
         }
         10% {
           transform: translate(-3px, 0px);
           filter: hue-rotate(180deg) saturate(0.5) brightness(0.8) contrast(3)
-            invert(0.8);
-          box-shadow:
-            -1px 0 0 #ff0000,
-            1px 0 0 #00ff00,
-            0 -1px 0 #0000ff;
+            invert(0.8) drop-shadow(-1px 0 0 #ff0000)
+            drop-shadow(1px 0 0 #00ff00) drop-shadow(0 -1px 0 #0000ff);
         }
         15% {
           transform: translate(3px, 2px);
           filter: hue-rotate(270deg) saturate(4) brightness(2) contrast(1.5)
-            invert(0.1);
-          box-shadow:
-            3px 0 0 #ff00ff,
-            -3px 0 0 #ffff00;
+            invert(0.1) drop-shadow(3px 0 0 #ff00ff)
+            drop-shadow(-3px 0 0 #ffff00);
         }
         20% {
           transform: translate(-1px, -1px);
           filter: hue-rotate(360deg) saturate(2) brightness(0.5) contrast(4)
-            invert(0.9);
-          box-shadow:
-            0 2px 0 #ff0000,
-            0 -2px 0 #00ffff;
+            invert(0.9) drop-shadow(0 2px 0 #ff0000)
+            drop-shadow(0 -2px 0 #00ffff);
         }
         25% {
           transform: translate(2px, -2px);
           filter: hue-rotate(45deg) saturate(0.2) brightness(1.8) contrast(0.5)
-            invert(0.3);
-          box-shadow:
-            2px 2px 0 #ff0000,
-            -2px -2px 0 #00ff00;
+            invert(0.3) drop-shadow(2px 2px 0 #ff0000)
+            drop-shadow(-2px -2px 0 #00ff00);
         }
         30% {
           transform: translate(-2px, 2px);
           filter: hue-rotate(135deg) saturate(5) brightness(0.3) contrast(5)
-            invert(0.7);
-          box-shadow:
-            1px 0 0 #ff0000,
-            -1px 0 0 #00ffff,
-            0 1px 0 #ffff00;
+            invert(0.7) drop-shadow(1px 0 0 #ff0000)
+            drop-shadow(-1px 0 0 #00ffff) drop-shadow(0 1px 0 #ffff00);
         }
         35% {
           transform: translate(0px, 1px);
           filter: hue-rotate(225deg) saturate(1.5) brightness(2.5) contrast(2)
-            invert(0.4);
-          box-shadow:
-            -2px 0 0 #ff00ff,
-            2px 0 0 #00ff00;
+            invert(0.4) drop-shadow(-2px 0 0 #ff00ff)
+            drop-shadow(2px 0 0 #00ff00);
         }
         40% {
           transform: translate(-1px, -1px);
@@ -92,52 +80,38 @@ const { title, description = "Shanyu Thibaut - Developer" } = Astro.props;
         45% {
           transform: translate(1px, 0px);
           filter: hue-rotate(60deg) saturate(3.5) brightness(1.2) contrast(1.8)
-            invert(0.1);
-          box-shadow:
-            3px 0 0 #ff0000,
-            -3px 0 0 #00ffff,
-            0 2px 0 #ff00ff;
+            invert(0.1) drop-shadow(3px 0 0 #ff0000)
+            drop-shadow(-3px 0 0 #00ffff) drop-shadow(0 2px 0 #ff00ff);
         }
         50% {
           transform: translate(0px, -2px);
           filter: hue-rotate(150deg) saturate(0.1) brightness(3) contrast(0.2)
-            invert(1);
-          box-shadow:
-            1px 1px 0 #ffff00,
-            -1px -1px 0 #ff00ff;
+            invert(1) drop-shadow(1px 1px 0 #ffff00)
+            drop-shadow(-1px -1px 0 #ff00ff);
         }
         55% {
           transform: translate(-3px, 1px);
           filter: hue-rotate(240deg) saturate(6) brightness(0.1) contrast(6)
-            invert(0.2);
-          box-shadow:
-            2px 0 0 #00ff00,
-            -2px 0 0 #ff0000;
+            invert(0.2) drop-shadow(2px 0 0 #00ff00)
+            drop-shadow(-2px 0 0 #ff0000);
         }
         60% {
           transform: translate(2px, 2px);
           filter: hue-rotate(330deg) saturate(2.5) brightness(1.5) contrast(2.5)
-            invert(0.8);
-          box-shadow:
-            0 -2px 0 #00ffff,
-            0 2px 0 #ffff00;
+            invert(0.8) drop-shadow(0 -2px 0 #00ffff)
+            drop-shadow(0 2px 0 #ffff00);
         }
         65% {
           transform: translate(-1px, 0px);
           filter: hue-rotate(75deg) saturate(0.3) brightness(2.2) contrast(1.2)
-            invert(0.5);
-          box-shadow:
-            -1px 0 0 #ff0000,
-            1px 0 0 #00ff00,
-            0 1px 0 #0000ff;
+            invert(0.5) drop-shadow(-1px 0 0 #ff0000)
+            drop-shadow(1px 0 0 #00ff00) drop-shadow(0 1px 0 #0000ff);
         }
         70% {
           transform: translate(1px, -1px);
           filter: hue-rotate(165deg) saturate(4.5) brightness(0.4) contrast(4)
-            invert(0.9);
-          box-shadow:
-            2px 2px 0 #ff00ff,
-            -2px -2px 0 #00ffff;
+            invert(0.9) drop-shadow(2px 2px 0 #ff00ff)
+            drop-shadow(-2px -2px 0 #00ffff);
         }
         75% {
           transform: translate(0px, 2px);
@@ -148,34 +122,26 @@ const { title, description = "Shanyu Thibaut - Developer" } = Astro.props;
         80% {
           transform: translate(-2px, -1px);
           filter: hue-rotate(345deg) saturate(0.6) brightness(0.6) contrast(2.8)
-            invert(0.7);
-          box-shadow:
-            3px 0 0 #ffff00,
-            -3px 0 0 #ff00ff;
+            invert(0.7) drop-shadow(3px 0 0 #ffff00)
+            drop-shadow(-3px 0 0 #ff00ff);
         }
         85% {
           transform: translate(2px, 0px);
           filter: hue-rotate(30deg) saturate(3.2) brightness(2.1) contrast(1.5)
-            invert(0.1);
-          box-shadow:
-            1px -1px 0 #ff0000,
-            -1px 1px 0 #00ffff;
+            invert(0.1) drop-shadow(1px -1px 0 #ff0000)
+            drop-shadow(-1px 1px 0 #00ffff);
         }
         90% {
           transform: translate(-1px, 1px);
           filter: hue-rotate(120deg) saturate(0.4) brightness(1.3) contrast(3.5)
-            invert(0.6);
-          box-shadow:
-            0 2px 0 #00ff00,
-            0 -2px 0 #ff00ff;
+            invert(0.6) drop-shadow(0 2px 0 #00ff00)
+            drop-shadow(0 -2px 0 #ff00ff);
         }
         95% {
           transform: translate(1px, -2px);
           filter: hue-rotate(210deg) saturate(5.5) brightness(0.7) contrast(2.2)
-            invert(0.8);
-          box-shadow:
-            2px 0 0 #00ffff,
-            -2px 0 0 #ffff00;
+            invert(0.8) drop-shadow(2px 0 0 #00ffff)
+            drop-shadow(-2px 0 0 #ffff00);
         }
         100% {
           transform: translate(0);
@@ -191,14 +157,17 @@ const { title, description = "Shanyu Thibaut - Developer" } = Astro.props;
           transform 0.3s ease-out;
         position: relative;
         display: inline-block;
+        filter: brightness(0) saturate(100%);
       }
 
       .stj-logo:hover {
         animation: glitch 0.8s ease-in-out infinite;
+        filter: none; /* Let glitch animation control the filter */
       }
 
       .stj-logo.auto-glitch {
         animation: glitch 0.6s ease-in-out;
+        filter: none; /* Let glitch animation control the filter */
       }
 
       /* Create chromatic aberration using box-shadow for better visibility */
@@ -211,7 +180,6 @@ const { title, description = "Shanyu Thibaut - Developer" } = Astro.props;
         right: 0;
         bottom: 0;
         background: inherit;
-        background-image: url("/images/stj.png");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -230,7 +198,6 @@ const { title, description = "Shanyu Thibaut - Developer" } = Astro.props;
         right: 0;
         bottom: 0;
         background: inherit;
-        background-image: url("/images/stj.png");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -315,7 +282,7 @@ const { title, description = "Shanyu Thibaut - Developer" } = Astro.props;
     <header class="border-b border-gray-200 pb-7 mb-8 text-center">
       <div class="flex flex-col items-center gap-5">
         <img
-          src="/images/stj.png"
+          src="/images/stj.svg"
           alt="Shanyu Thibaut"
           class="stj-logo w-40 h-40 m-[-32px]"
           id="stjLogo"
