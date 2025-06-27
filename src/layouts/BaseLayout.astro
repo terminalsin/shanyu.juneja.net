@@ -17,19 +17,311 @@ const { title, description = "Shanyu Thibaut - Developer" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <style>
+      @keyframes glitch {
+        0% {
+          transform: translate(0);
+          filter: hue-rotate(0deg) saturate(1) brightness(1) contrast(1)
+            invert(0);
+          box-shadow: 0 0 0 transparent;
+        }
+        5% {
+          transform: translate(-2px, 2px);
+          filter: hue-rotate(90deg) saturate(3) brightness(1.5) contrast(2)
+            invert(0.2);
+          box-shadow:
+            2px 0 0 #ff0000,
+            -2px 0 0 #00ffff;
+        }
+        10% {
+          transform: translate(-3px, 0px);
+          filter: hue-rotate(180deg) saturate(0.5) brightness(0.8) contrast(3)
+            invert(0.8);
+          box-shadow:
+            -1px 0 0 #ff0000,
+            1px 0 0 #00ff00,
+            0 -1px 0 #0000ff;
+        }
+        15% {
+          transform: translate(3px, 2px);
+          filter: hue-rotate(270deg) saturate(4) brightness(2) contrast(1.5)
+            invert(0.1);
+          box-shadow:
+            3px 0 0 #ff00ff,
+            -3px 0 0 #ffff00;
+        }
+        20% {
+          transform: translate(-1px, -1px);
+          filter: hue-rotate(360deg) saturate(2) brightness(0.5) contrast(4)
+            invert(0.9);
+          box-shadow:
+            0 2px 0 #ff0000,
+            0 -2px 0 #00ffff;
+        }
+        25% {
+          transform: translate(2px, -2px);
+          filter: hue-rotate(45deg) saturate(0.2) brightness(1.8) contrast(0.5)
+            invert(0.3);
+          box-shadow:
+            2px 2px 0 #ff0000,
+            -2px -2px 0 #00ff00;
+        }
+        30% {
+          transform: translate(-2px, 2px);
+          filter: hue-rotate(135deg) saturate(5) brightness(0.3) contrast(5)
+            invert(0.7);
+          box-shadow:
+            1px 0 0 #ff0000,
+            -1px 0 0 #00ffff,
+            0 1px 0 #ffff00;
+        }
+        35% {
+          transform: translate(0px, 1px);
+          filter: hue-rotate(225deg) saturate(1.5) brightness(2.5) contrast(2)
+            invert(0.4);
+          box-shadow:
+            -2px 0 0 #ff00ff,
+            2px 0 0 #00ff00;
+        }
+        40% {
+          transform: translate(-1px, -1px);
+          filter: hue-rotate(315deg) saturate(0.8) brightness(0.2) contrast(3)
+            invert(0.6);
+          box-shadow: 0 0 0 transparent;
+        }
+        45% {
+          transform: translate(1px, 0px);
+          filter: hue-rotate(60deg) saturate(3.5) brightness(1.2) contrast(1.8)
+            invert(0.1);
+          box-shadow:
+            3px 0 0 #ff0000,
+            -3px 0 0 #00ffff,
+            0 2px 0 #ff00ff;
+        }
+        50% {
+          transform: translate(0px, -2px);
+          filter: hue-rotate(150deg) saturate(0.1) brightness(3) contrast(0.2)
+            invert(1);
+          box-shadow:
+            1px 1px 0 #ffff00,
+            -1px -1px 0 #ff00ff;
+        }
+        55% {
+          transform: translate(-3px, 1px);
+          filter: hue-rotate(240deg) saturate(6) brightness(0.1) contrast(6)
+            invert(0.2);
+          box-shadow:
+            2px 0 0 #00ff00,
+            -2px 0 0 #ff0000;
+        }
+        60% {
+          transform: translate(2px, 2px);
+          filter: hue-rotate(330deg) saturate(2.5) brightness(1.5) contrast(2.5)
+            invert(0.8);
+          box-shadow:
+            0 -2px 0 #00ffff,
+            0 2px 0 #ffff00;
+        }
+        65% {
+          transform: translate(-1px, 0px);
+          filter: hue-rotate(75deg) saturate(0.3) brightness(2.2) contrast(1.2)
+            invert(0.5);
+          box-shadow:
+            -1px 0 0 #ff0000,
+            1px 0 0 #00ff00,
+            0 1px 0 #0000ff;
+        }
+        70% {
+          transform: translate(1px, -1px);
+          filter: hue-rotate(165deg) saturate(4.5) brightness(0.4) contrast(4)
+            invert(0.9);
+          box-shadow:
+            2px 2px 0 #ff00ff,
+            -2px -2px 0 #00ffff;
+        }
+        75% {
+          transform: translate(0px, 2px);
+          filter: hue-rotate(255deg) saturate(1.8) brightness(1.8) contrast(3)
+            invert(0.3);
+          box-shadow: 0 0 0 transparent;
+        }
+        80% {
+          transform: translate(-2px, -1px);
+          filter: hue-rotate(345deg) saturate(0.6) brightness(0.6) contrast(2.8)
+            invert(0.7);
+          box-shadow:
+            3px 0 0 #ffff00,
+            -3px 0 0 #ff00ff;
+        }
+        85% {
+          transform: translate(2px, 0px);
+          filter: hue-rotate(30deg) saturate(3.2) brightness(2.1) contrast(1.5)
+            invert(0.1);
+          box-shadow:
+            1px -1px 0 #ff0000,
+            -1px 1px 0 #00ffff;
+        }
+        90% {
+          transform: translate(-1px, 1px);
+          filter: hue-rotate(120deg) saturate(0.4) brightness(1.3) contrast(3.5)
+            invert(0.6);
+          box-shadow:
+            0 2px 0 #00ff00,
+            0 -2px 0 #ff00ff;
+        }
+        95% {
+          transform: translate(1px, -2px);
+          filter: hue-rotate(210deg) saturate(5.5) brightness(0.7) contrast(2.2)
+            invert(0.8);
+          box-shadow:
+            2px 0 0 #00ffff,
+            -2px 0 0 #ffff00;
+        }
+        100% {
+          transform: translate(0);
+          filter: hue-rotate(0deg) saturate(1) brightness(1) contrast(1)
+            invert(0);
+          box-shadow: 0 0 0 transparent;
+        }
+      }
+
+      .stj-logo {
+        transition:
+          filter 0.3s ease-out,
+          transform 0.3s ease-out;
+        position: relative;
+        display: inline-block;
+      }
+
+      .stj-logo:hover {
+        animation: glitch 0.8s ease-in-out infinite;
+      }
+
+      .stj-logo.auto-glitch {
+        animation: glitch 0.6s ease-in-out;
+      }
+
+      /* Create chromatic aberration using box-shadow for better visibility */
+      .stj-logo:hover::before,
+      .stj-logo.auto-glitch::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        background-image: url("/images/stj.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.8;
+        animation: chromatic-red 0.8s ease-in-out infinite;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .stj-logo:hover::after,
+      .stj-logo.auto-glitch::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        background-image: url("/images/stj.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.8;
+        animation: chromatic-cyan 0.8s ease-in-out infinite;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      @keyframes chromatic-red {
+        0%,
+        100% {
+          transform: translate(0, 0);
+          filter: hue-rotate(0deg) saturate(2) brightness(1.2) contrast(1.5);
+        }
+        25% {
+          transform: translate(2px, -1px);
+          filter: hue-rotate(15deg) saturate(3) brightness(1.5) contrast(2);
+        }
+        50% {
+          transform: translate(-2px, 1px);
+          filter: hue-rotate(-15deg) saturate(2.5) brightness(1.3) contrast(1.8);
+        }
+        75% {
+          transform: translate(1px, 2px);
+          filter: hue-rotate(10deg) saturate(3.5) brightness(1.4) contrast(2.2);
+        }
+      }
+
+      @keyframes chromatic-cyan {
+        0%,
+        100% {
+          transform: translate(0, 0);
+          filter: hue-rotate(180deg) saturate(2) brightness(1.2) contrast(1.5);
+        }
+        33% {
+          transform: translate(-1px, 2px);
+          filter: hue-rotate(190deg) saturate(3) brightness(1.4) contrast(2);
+        }
+        66% {
+          transform: translate(2px, -1px);
+          filter: hue-rotate(170deg) saturate(2.5) brightness(1.3) contrast(1.8);
+        }
+      }
+
+      /* Auto-glitch specific styles to override infinite animations */
+      .stj-logo.auto-glitch::before {
+        animation: chromatic-red 0.6s ease-in-out !important;
+      }
+
+      .stj-logo.auto-glitch::after {
+        animation: chromatic-cyan 0.6s ease-in-out !important;
+      }
+
+      /* Highlighter effect for navbar links */
+      nav a {
+        position: relative;
+        padding: 0.2rem 0.6rem;
+        border-radius: 15% 5% / 12% 40%;
+        background-image: linear-gradient(
+          to right,
+          transparent 50%,
+          rgba(59, 130, 246, 0.4) 50%
+        );
+        background-position: 100%;
+        background-size: 200%;
+        transition: background-position 0.3s ease;
+      }
+
+      nav a:hover {
+        background-position: -100%;
+      }
+
+      nav a:not(:hover) {
+        background-position: 0%;
+      }
+    </style>
   </head>
   <body
-    class="bg-white text-gray-800 font-sans min-h-screen flex flex-col max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto px-6 py-8 md:px-12 md:py-12"
+    class="bg-white text-gray-800 font-sans min-h-screen flex flex-col max-w-[34rem] md:max-w-[51rem] lg:max-w-[68rem] mx-auto px-5 py-7 md:px-10 md:py-10"
   >
-    <header class="border-b border-gray-200 pb-8 mb-10 text-center">
-      <div class="flex flex-col items-center gap-6">
+    <header class="border-b border-gray-200 pb-7 mb-8 text-center">
+      <div class="flex flex-col items-center gap-5">
         <img
           src="/images/stj.png"
           alt="Shanyu Thibaut"
-          class="w-48 h-48 m-[-40px]"
+          class="stj-logo w-40 h-40 m-[-32px]"
+          id="stjLogo"
         />
         <nav>
-          <ul class="flex list-none gap-8 m-0 p-0">
+          <ul class="flex list-none gap-7 m-0 p-0">
             <li>
               <a
                 href="/"
@@ -68,9 +360,28 @@ const { title, description = "Shanyu Thibaut - Developer" } = Astro.props;
     </main>
 
     <footer
-      class="mt-12 pt-8 border-t border-gray-200 text-gray-600 text-sm text-center"
+      class="mt-10 pt-7 border-t border-gray-200 text-gray-600 text-sm text-center"
     >
       <p>&copy; 2024 Shanyu Thibaut. Built with Astro.</p>
     </footer>
+
+    <script>
+      // Auto-glitch every 20 seconds
+      function autoGlitch() {
+        const logo = document.getElementById("stjLogo");
+        if (logo) {
+          logo.classList.add("auto-glitch");
+          setTimeout(() => {
+            logo.classList.remove("auto-glitch");
+          }, 600); // Match the animation duration
+        }
+      }
+
+      // Start the auto-glitch cycle
+      setInterval(autoGlitch, 20000);
+
+      // Add a random delay for the first glitch (between 5-15 seconds)
+      setTimeout(autoGlitch, Math.random() * 10000 + 5000);
+    </script>
   </body>
 </html>
