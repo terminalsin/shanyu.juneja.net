@@ -57,6 +57,26 @@ const repositories = [
         celebrationImage: null,
         winType: 'first' as const,
         tech: ['Python', 'TTS', 'LLM', 'LLM API']
+    },
+    {
+        owner: 'terminalsin',
+        repo: 'no-cluely',
+        title: 'NoCluely',
+        hackathonWin: true,
+        hackathonName: '#Meme',
+        celebrationImage: null,
+        winType: 'finalist' as const,
+        tech: ['Rust', 'Python', 'Swift', 'LLM Detection']
+    },
+    {
+        owner: 'terminalsin',
+        repo: 'piidact-chrome-extension',
+        title: 'PiiDact',
+        hackathonWin: false,
+        hackathonName: '#Meme',
+        celebrationImage: null,
+        winType: 'finalist' as const,
+        tech: ['JavaScript', 'Chrome', 'Privacy', 'LLM Detection']
     }
 ];
 
