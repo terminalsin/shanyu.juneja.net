@@ -1,63 +1,262 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { type CollectionEntry, getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = await getCollection("blog");
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: post,
   }));
 }
-type Props = CollectionEntry<'blog'>;
+type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 const { Content } = await post.render();
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <div class="max-w-none">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <article>
-      <header class="mb-8 pb-8 border-b border-gray-200">
-        <div class="text-sm text-gray-500 mb-4">
-          Published on {new Date(post.data.pubDate).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          })}
-          {post.data.updatedDate && (
-            <span> • Updated on {new Date(post.data.updatedDate).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}</span>
-          )}
+      <header class="mb-12 pb-8 border-b border-gray-200">
+        <div class="text-sm text-gray-500 mb-4 font-medium">
+          Published on {
+            new Date(post.data.pubDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
         </div>
-        
-        <h1 class="text-4xl font-bold mb-4 text-gray-900 leading-tight">{post.data.title}</h1>
-        
-        <p class="text-xl text-gray-600 leading-relaxed">{post.data.description}</p>
-        
-        {post.data.tags && (
-          <div class="flex flex-wrap gap-2 mt-4">
-            {post.data.tags.map((tag) => (
-              <span class="px-3 py-1 text-sm font-medium text-gray-600 bg-gray-100 rounded-full">
+        <h1
+          class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight"
+        >
+          {post.data.title}
+        </h1>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          {post.data.description}
+        </p>
+        <div class="flex gap-2 mt-6">
+          {
+            post.data.tags?.map((tag) => (
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
                 {tag}
               </span>
-            ))}
-          </div>
-        )}
+            ))
+          }
+        </div>
       </header>
 
-      <div class="prose prose-gray prose-lg max-w-none">
+      <div class="prose-content max-w-none">
         <Content />
       </div>
     </article>
 
-    <div class="mt-12 pt-8 border-t border-gray-200">
-      <a href="/thoughts" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-        ← Back to all thoughts
+    <div class="mt-16 pt-8 border-t border-gray-200">
+      <a
+        href="/thoughts"
+        class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
+      >
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to all thoughts
       </a>
     </div>
   </div>
-</BaseLayout> 
+</BaseLayout>
+
+<style>
+  /* Direct styling that works with Tailwind CSS v4 */
+  .prose-content {
+    color: #374151;
+    line-height: 1.75;
+  }
+
+  /* Headings - Large and Bold */
+  .prose-content :global(h1) {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #111827;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    border-bottom: 3px solid #3b82f6;
+    padding-bottom: 0.5rem;
+  }
+
+  .prose-content :global(h2) {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+    position: relative;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e5e7eb;
+  }
+
+  .prose-content :global(h2)::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 4rem;
+    height: 3px;
+    background: linear-gradient(to right, #3b82f6, #60a5fa);
+    border-radius: 2px;
+  }
+
+  .prose-content :global(h3) {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  /* Paragraphs */
+  .prose-content :global(p) {
+    margin-bottom: 1.5rem;
+    line-height: 1.75;
+    color: #374151;
+  }
+
+  /* Lists with visible bullets */
+  .prose-content :global(ul) {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+    list-style: none;
+  }
+
+  .prose-content :global(ul li) {
+    position: relative;
+    margin-bottom: 0.75rem;
+    line-height: 1.75;
+    color: #374151;
+    padding-left: 1rem;
+  }
+
+  .prose-content :global(ul li)::before {
+    content: "•";
+    position: absolute;
+    left: -1rem;
+    color: #3b82f6;
+    font-weight: bold;
+    font-size: 1.25em;
+  }
+
+  /* Nested lists */
+  .prose-content :global(ul ul) {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .prose-content :global(ul ul li)::before {
+    content: "◦";
+    color: #6b7280;
+    font-size: 1.1em;
+  }
+
+  /* Ordered lists */
+  .prose-content :global(ol) {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+    list-style: decimal;
+  }
+
+  .prose-content :global(ol li) {
+    margin-bottom: 0.75rem;
+    line-height: 1.75;
+    color: #374151;
+  }
+
+  /* Strong text */
+  .prose-content :global(strong) {
+    font-weight: 700;
+    color: #111827;
+  }
+
+  /* Links */
+  .prose-content :global(a) {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .prose-content :global(a):hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+
+  /* Blockquotes */
+  .prose-content :global(blockquote) {
+    border-left: 4px solid #3b82f6;
+    background: linear-gradient(to right, #eff6ff, #f8fafc);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: #374151;
+  }
+
+  .prose-content :global(blockquote p) {
+    margin: 0;
+  }
+
+  /* Code */
+  .prose-content :global(code) {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: 500;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas,
+      "Liberation Mono", Menlo, monospace;
+  }
+
+  /* Code blocks */
+  .prose-content :global(pre) {
+    background: #f0f2f5 !important;
+    color: #e2e8f0 !important;
+    padding: 1.5rem !important;
+    border-radius: 8px !important;
+    overflow-x: auto !important;
+    margin: 2rem 0 !important;
+    border: 1px solid #334155 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .prose-content :global(pre code) {
+    background: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Images and Videos */
+  .prose-content :global(img),
+  .prose-content :global(video) {
+    margin: 2rem auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
