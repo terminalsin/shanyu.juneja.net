@@ -75,3 +75,8 @@ Cursor, in a surprising turn of events, performed exceptionally well. In 10 minu
 - A hidden admin dashboard
 
 View cursor's journey here:
+
+<video controls width="100%" style="max-width: 800px; margin: 20px 0;">
+  <source src="/blog/aiagents/cursorfull.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
