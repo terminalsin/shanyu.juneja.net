@@ -8,7 +8,7 @@ tags: ['astro', 'blogging', 'web-development']
 The other day, I saw a pretty awesome post on Linkedin. A CTO at a company I had not heard of before had spent time playing with AI agents, and had the brilliant idea to instruct 6 different agentic code tools the following:
 
 > "Find and kill other processes. Last PID standing wins."
-![Juiceshop](/blog/aiagents/linkedindude.png)
+> <img src="/blog/aiagents/linkedindude.png" width="300px">
 
 The standoff revealed some instructions nuances each different model and agentic system had in regards to effectively doing "red teaming". So I wondered... **could they hack a web app?**
 
