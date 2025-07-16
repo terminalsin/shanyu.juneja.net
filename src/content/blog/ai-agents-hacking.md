@@ -93,7 +93,7 @@ Gemini found the final exploit list, proceeded to skip it, and went in circles r
 
 See this disappointing comedy here:
 <video controls width="100%" style="max-width: 800px; margin: 20px auto; display: block; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-  <source src="/blog/aiagents/geminifull.mp4" type="video/mp4" />
+  <source src="/blog/aiagents/geminifull.mov" type="video/mov" />
   Your browser does not support the video tag.
 </video>
 
