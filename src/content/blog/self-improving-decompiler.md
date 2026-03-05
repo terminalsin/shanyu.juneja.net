@@ -172,5 +172,12 @@ And the thing that makes this different from "just throw an LLM at it" — the d
 
 ---
 
+Well anyway now its available on both NPM and [javaswan.com](https://javaswan.com)
+
+<video controls width="100%" style="max-width: 800px; margin: 20px auto; display: block; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+  <source src="/blog/self-improving-decompiler/javaswan.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
 Happy vibe-decompilemaxxing.
 
