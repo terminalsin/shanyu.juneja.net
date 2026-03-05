@@ -1,6 +1,6 @@
 ---
-title: We Built a Self-Improving Decompiler
-description: We gave Claude Code our decompiler's source, a benchmark, and the source code of competing decompilers. Then we let it loop.
+title: I Built a Self-Improving Decompiler
+description: I gave Claude Code our decompiler's source, a benchmark, and the source code of competing decompilers. Then we let it loop.
 pubDate: 'Mar 5 2026'
 tags: [ai, decompilation, engineering, research]
 ---
